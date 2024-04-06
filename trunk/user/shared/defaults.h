@@ -29,7 +29,7 @@
 #define SYS_GROUP_ROOT		"root"
 #define SYS_USER_NOBODY		"nobody"
 #define SYS_GROUP_NOGROUP	"nogroup"
-#define DEF_lan_proto_x		"0"
+#define DEF_LAN_PROTO_X		"0"
 #define DEF_LAN_ADDR		"192.168.200.200"
 #define DEF_LAN_DHCP_BEG	"192.168.200.2"
 #define DEF_LAN_DHCP_END	"192.168.200.199"
