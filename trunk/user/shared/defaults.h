@@ -29,7 +29,7 @@
 #define SYS_GROUP_ROOT		"root"
 #define SYS_USER_NOBODY		"nobody"
 #define SYS_GROUP_NOGROUP	"nogroup"
-
+#define DEF_lan_proto_x		"0"
 #define DEF_LAN_ADDR		"192.168.200.200"
 #define DEF_LAN_DHCP_BEG	"192.168.200.2"
 #define DEF_LAN_DHCP_END	"192.168.200.199"
@@ -54,6 +54,8 @@
 #define DEF_NTP_PERIOD		"0"
 #define DEF_NTP_SERVER0		"ntp1.aliyun.com"
 #define DEF_NTP_SERVER1		"pool.ntp.org"
+#define DEF_HELP_ENABLE		"0"
+#define DEF_LOG_FLOAT_UI		"0"
 #ifdef SUPPORT_OPENSSL_EC
 #define DEF_HTTPS_CIPH_LIST	"ECDH+CHACHA20:ECDH+AESGCM:DH+AESGCM:DH+AES256:DH+AES:DH+3DES:RSA+AES:RSA+3DES:!ADH:!MD5:!DSS"
 #else
