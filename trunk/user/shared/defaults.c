@@ -34,7 +34,7 @@ struct nvram_pair router_defaults[] = {
 
 	/* Miscellaneous parameters */
 	{ "time_zone", DEF_TIMEZONE },
-	{ "log_float_ui", "1" },		/* WebUI syslog float panel mode */
+	{ "log_float_ui", "0" },		/* WebUI syslog float panel mode */
 	{ "log_ipaddr", "" },			/* syslog recipient IP */
 	{ "log_port", "514" },			/* syslog recipient Port */
 	{ "log_level", "0" },			/* Bitmask 0:off 1:denied 2:accepted */
@@ -48,12 +48,12 @@ struct nvram_pair router_defaults[] = {
 	{ "lan_hwaddr", "" },			/* LAN interface MAC address */
 
 	/* LAN TCP/IP parameters */
-	{ "lan_proto_x", "1" },			/* DHCP client [static|dhcp] in AP mode */
+	{ "lan_proto_x", "0" },			/* DHCP client [static|dhcp] in AP mode */
 	{ "lan_dhcpd_x", "0" },			/* DHCP server in AP mode */
 	{ "lan_ipaddr", DEF_LAN_ADDR },		/* LAN IP address */
 	{ "lan_netmask", DEF_LAN_MASK },	/* LAN netmask */
-	{ "lan_gateway", DEF_LAN_ADDR },	/* LAN gateway */
-	{ "lan_dns_x", "1" },			/* LAN DNS [static|dhcp] */
+	{ "lan_gateway", "" },	/* LAN gateway */
+	{ "lan_dns_x", "0" },			/* LAN DNS [static|dhcp] */
 	{ "lan_dns1", "" },			/* LAN DNS1 */
 	{ "lan_dns2", "" },			/* LAN DNS2 */
 	{ "lan_domain", "lan" },		/* LAN domain name */
@@ -601,7 +601,7 @@ struct nvram_pair router_defaults[] = {
 	{ "dhcp_staticnum_x", "0" },
 
 	/* NTP client parameters */
-	{ "ntp_period", "24" },
+	{ "ntp_period", "0" },
 	{ "ntp_server0", DEF_NTP_SERVER0 },
 	{ "ntp_server1", DEF_NTP_SERVER1 },
 
@@ -701,9 +701,9 @@ struct nvram_pair router_defaults[] = {
 	{ "telnetd", "0" },
 	{ "sshd_enable", "1" },
 	{ "wins_enable", "0" },
-	{ "lltd_enable", "1" },
+	{ "lltd_enable", "0" },
 	{ "adsc_enable", "0" },
-	{ "crond_enable", "1" },
+	{ "crond_enable", "0" },
 	{ "crond_log", "0" },
 
 #if defined(BOARD_N65U)
