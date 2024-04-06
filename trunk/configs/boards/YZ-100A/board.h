@@ -4,8 +4,8 @@
 #define BOARD_NAME		"YZ-100A"
 #define BOARD_DESC		"YZ-100A Wireless Router"
 #define BOARD_VENDOR_NAME	"LQDN"
-#define BOARD_VENDOR_URL	"https://github.com/bqtlq"
-#define BOARD_MODEL_URL		"https://github.com/bqtlq"
+#define BOARD_VENDOR_URL	"https://github.com/hanwckf/rt-n56u"
+#define BOARD_MODEL_URL		"https://github.com/hanwckf/rt-n56u"
 #define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
 #define BOARD_GPIO_BTN_RESET	2
