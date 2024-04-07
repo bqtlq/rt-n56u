@@ -250,9 +250,9 @@ func_fill()
 	if [ ! -f "$script_started" ] ; then
 		cat > "$script_started" <<EOF
 #!/bin/sh
-logger -t "usb_net：" "启动后检测USB网卡"
+# logger -t "usb_net：" "启动后检测USB网卡"
 /etc/storage/usb_lan.sh
-logger -t "usb_net：" "启动完毕 USB网卡检测完成"
+# logger -t "usb_net：" "启动完毕 USB网卡检测完成"
 ### Custom user script
 ### Called after router started and network is ready
 
