@@ -695,7 +695,7 @@ struct nvram_pair router_defaults[] = {
 	{ "nf_alg_rtsp", "0" },
 	{ "nf_alg_sip", "0" },
 
-	{ "help_enable", "1" },
+	{ "help_enable", "0" },
 
 	{ "vpns_enable", "0" },
 	{ "vpns_type", "0" },
