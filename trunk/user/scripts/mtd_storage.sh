@@ -328,6 +328,21 @@ EOF
 		chmod 755 "$script_postw"
 	fi
 
+	if [ ! -f "$script_usb_lan" ] ; then
+		cat > "$script_usb_lan" <<EOF
+#!/bin/sh
+sleep 1s
+if ifconfig eth0 |grep eth0 >/dev/null ;then
+	logger -t "usb_net：" "检测到USB网卡"
+	brctl addif br0 eth0
+	ip link set eth0 up
+	logger -t "usb_net：" "USB网卡已链接"
+fi
+exit 0
+
+EOF
+		chmod 755 "$script_usb_lan"
+	fi
 	# create inet-state script
 	if [ ! -f "$script_inets" ] ; then
 		cat > "$script_inets" <<EOF
