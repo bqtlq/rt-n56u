@@ -36,17 +36,11 @@
 #define DEF_LAN_MASK		"255.255.255.0"
 
 #define DEF_WLAN_2G_CC		"CN"
-#undef DEF_WLAN_5G_CC		"US"
 #define DEF_WLAN_2G_SSID	"200.200"
-#undef DEF_WLAN_5G_SSID		"_5G_%s"
 #define DEF_WLAN_2G_GSSID	"_GUEST_%s"
-#undef DEF_WLAN_5G_GSSID	"_GUEST_5G_%s"
 #define DEF_WLAN_2G_SSID	"200.200"
-#undef DEF_WLAN_5G_SSID		"_5G_%s"
 #define DEF_WLAN_2G_GSSID	"GUEST_200.200"
-#undef DEF_WLAN_5G_GSSID	"GUEST_5G_%s"
 #define DEF_WLAN_2G_PSK		"a123456789"
-#undef DEF_WLAN_5G_PSK		"a123456789"
 
 #define DEF_ROOT_PASSWORD	"admin"
 #define DEF_SMB_WORKGROUP	"WORKGROUP"
