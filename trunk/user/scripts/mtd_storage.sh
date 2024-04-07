@@ -188,8 +188,6 @@ func_fill()
 {
 	dir_httpssl="$dir_storage/https"
 	dir_dnsmasq="$dir_storage/dnsmasq"
-	dir_ovpnsvr="$dir_storage/openvpn/server"
-	dir_ovpncli="$dir_storage/openvpn/client"
 	dir_sswan="$dir_storage/strongswan"
 	dir_sswan_crt="$dir_sswan/ipsec.d"
 	dir_inadyn="$dir_storage/inadyn"
@@ -203,16 +201,13 @@ func_fill()
 	script_shutd="$dir_storage/shutdown_script.sh"
 	script_postf="$dir_storage/post_iptables_script.sh"
 	script_postw="$dir_storage/post_wan_script.sh"
+	script_usb_lan="$dir_storage/usb_lan.sh"
 	script_inets="$dir_storage/inet_state_script.sh"
-	script_vpnsc="$dir_storage/vpns_client_script.sh"
-	script_vpncs="$dir_storage/vpnc_server_script.sh"
 	script_ezbtn="$dir_storage/ez_buttons_script.sh"
 
 	user_hosts="$dir_dnsmasq/hosts"
 	user_dnsmasq_conf="$dir_dnsmasq/dnsmasq.conf"
 	user_dhcp_conf="$dir_dnsmasq/dhcp.conf"
-	user_ovpnsvr_conf="$dir_ovpnsvr/server.conf"
-	user_ovpncli_conf="$dir_ovpncli/client.conf"
 	user_inadyn_conf="$dir_inadyn/inadyn.conf"
 	user_sswan_conf="$dir_sswan/strongswan.conf"
 	user_sswan_ipsec_conf="$dir_sswan/ipsec.conf"
@@ -250,9 +245,9 @@ func_fill()
 	if [ ! -f "$script_started" ] ; then
 		cat > "$script_started" <<EOF
 #!/bin/sh
-# logger -t "usb_net：" "启动后检测USB网卡"
+logger -t "usb_net：" "启动后检测USB网卡"
 /etc/storage/usb_lan.sh
-# logger -t "usb_net：" "启动完毕 USB网卡检测完成"
+logger -t "usb_net：" "启动完毕 USB网卡检测完成"
 ### Custom user script
 ### Called after router started and network is ready
 
@@ -328,6 +323,7 @@ EOF
 		chmod 755 "$script_postw"
 	fi
 
+
 	if [ ! -f "$script_usb_lan" ] ; then
 		cat > "$script_usb_lan" <<EOF
 #!/bin/sh
@@ -343,6 +339,7 @@ exit 0
 EOF
 		chmod 755 "$script_usb_lan"
 	fi
+
 	# create inet-state script
 	if [ ! -f "$script_inets" ] ; then
 		cat > "$script_inets" <<EOF
@@ -357,105 +354,6 @@ logger -t "di" "Internet state: \$1, elapsed time: \$2s."
 
 EOF
 		chmod 755 "$script_inets"
-	fi
-
-	# create vpn server action script
-	if [ ! -f "$script_vpnsc" ] ; then
-		cat > "$script_vpnsc" <<EOF
-#!/bin/sh
-
-### Custom user script
-### Called after remote peer connected/disconnected to internal VPN server
-### \$1 - peer action (up/down)
-### \$2 - peer interface name (e.g. ppp10)
-### \$3 - peer local IP address
-### \$4 - peer remote IP address
-### \$5 - peer name
-
-peer_if="\$2"
-peer_ip="\$4"
-peer_name="\$5"
-
-### example: add static route to private LAN subnet behind a remote peer
-
-func_ipup()
-{
-#  if [ "\$peer_name" == "dmitry" ] ; then
-#    route add -net 192.168.5.0 netmask 255.255.255.0 dev \$peer_if
-#  elif [ "\$peer_name" == "victoria" ] ; then
-#    route add -net 192.168.8.0 netmask 255.255.255.0 dev \$peer_if
-#  fi
-   return 0
-}
-
-func_ipdown()
-{
-#  if [ "\$peer_name" == "dmitry" ] ; then
-#    route del -net 192.168.5.0 netmask 255.255.255.0 dev \$peer_if
-#  elif [ "\$peer_name" == "victoria" ] ; then
-#    route del -net 192.168.8.0 netmask 255.255.255.0 dev \$peer_if
-#  fi
-   return 0
-}
-
-case "\$1" in
-up)
-  func_ipup
-  ;;
-down)
-  func_ipdown
-  ;;
-esac
-
-EOF
-		chmod 755 "$script_vpnsc"
-	fi
-
-	# create vpn client action script
-	if [ ! -f "$script_vpncs" ] ; then
-		cat > "$script_vpncs" <<EOF
-#!/bin/sh
-
-### Custom user script
-### Called after internal VPN client connected/disconnected to remote VPN server
-### \$1        - action (up/down)
-### \$IFNAME   - tunnel interface name (e.g. ppp5 or tun0)
-### \$IPLOCAL  - tunnel local IP address
-### \$IPREMOTE - tunnel remote IP address
-### \$DNS1     - peer DNS1
-### \$DNS2     - peer DNS2
-
-# private LAN subnet behind a remote server (example)
-peer_lan="192.168.9.0"
-peer_msk="255.255.255.0"
-
-### example: add static route to private LAN subnet behind a remote server
-
-func_ipup()
-{
-#  route add -net \$peer_lan netmask \$peer_msk gw \$IPREMOTE dev \$IFNAME
-   return 0
-}
-
-func_ipdown()
-{
-#  route del -net \$peer_lan netmask \$peer_msk gw \$IPREMOTE dev \$IFNAME
-   return 0
-}
-
-logger -t vpnc-script "\$IFNAME \$1"
-
-case "\$1" in
-up)
-  func_ipup
-  ;;
-down)
-  func_ipdown
-  ;;
-esac
-
-EOF
-		chmod 755 "$script_vpncs"
 	fi
 
 	# create Ez-Buttons script
