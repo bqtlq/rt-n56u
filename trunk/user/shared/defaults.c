@@ -302,47 +302,6 @@ struct nvram_pair router_defaults[] = {
 	{ "hdd_spindt", "0" },
 	{ "hdd_apmoff", "0" },
 
-	{ "ip6_service", "" },
-	{ "ip6_ppe_on", "0" },
-	{ "ip6_wan_if", "0" },
-
-	{ "ip6_6in4_remote", "" },
-	{ "ip6_6to4_relay", "192.88.99.1" },
-	{ "ip6_6rd_relay", "" },
-	{ "ip6_6rd_size", "0" },
-	{ "ip6_6rd_dhcp", "1" },
-	{ "ip6_sit_mtu", "1280" },
-	{ "ip6_sit_ttl", "64" },
-
-	{ "ip6_wan_dhcp", "0" },
-	{ "ip6_wan_priv", "0" },
-	{ "ip6_wan_addr", "" },
-	{ "ip6_wan_size", "64" },
-	{ "ip6_wan_gate", "" },
-
-	{ "ip6_dns_auto", "0" },
-	{ "ip6_dns1", "" },
-	{ "ip6_dns2", "" },
-	{ "ip6_dns3", "" },
-
-	{ "ip6_lan_auto", "0" },
-	{ "ip6_lan_addr", "" },
-	{ "ip6_lan_size", "64" },
-	{ "ip6_lan_radv", "1" },
-	{ "ip6_lan_dhcp", "1" },
-	{ "ip6_lan_sflt", "1800" },
-	{ "ip6_lan_sfps", "4096" }, // 0x1000
-	{ "ip6_lan_sfpe", "4352" }, // 0x1100
-
-	{ "upnp_enable_x", "1" },
-	{ "upnp_proto", "0" },
-	{ "upnp_secure", "1" },
-	{ "upnp_clean_min", "10" },
-	{ "upnp_clean_int", "600" },
-	{ "upnp_iport_min", "21" },
-	{ "upnp_iport_max", "65535" },
-	{ "upnp_eport_min", "80" },
-	{ "upnp_eport_max", "65535" },
 	{ "vts_enable_x", "0" },
 	{ "vts_num_x", "0" },
 	{ "sp_battle_ips", "0" },
@@ -446,35 +405,6 @@ struct nvram_pair router_defaults[] = {
 	{ "dns_forwarder_server", "8.8.4.4:53" },
 #endif
 
-#if defined(APP_SHADOWSOCKS)
-	/* shadowsocks */
-	{ "ss_type", "0" }, //0=ss, 1=ssr
-	{ "ss_enable", "0" },
-	{ "ss_mode", "1" }, 	//0=全局代理,1=绕过大陆,2=gfwlist
-	{ "ss_server", "127.0.0.1" },
-	{ "ss_server_port", "8989" },
-	{ "ss_key", "Secret" },
-	{ "ss_method", "rc4-md5" },
-	{ "ss_udp", "0" },
-	{ "ss_local_port", "1080" },
-	{ "ss_mtu", "1492" },
-	{ "ss_router_proxy", "1" },
-	{ "ss_lower_port_only", "1" },		//1:22-1023;2:53,80,443
-	{ "ss_timeout", "60"},
-	{ "ss_protocol", "origin"},
-	{ "ss_proto_param", ""},
-	{ "ss_obfs", "plain"},
-	{ "ss_obfs_param", ""},
-
-	{ "ss-tunnel_enable", "0" },
-	{ "ss-tunnel_local_port", "5301" },
-	{ "ss-tunnel_remote", "8.8.4.4:53" },
-	{ "ss-tunnel_mtu", "1492" },
-
-	{ "ss_watchcat", "1" },
-	{ "ss_update_chnroute", "0" },
-	{ "ss_update_gfwlist", "0" },
-#endif
 
 	/* DHCP server parameters */
 	{ "dhcp_start", DEF_LAN_DHCP_BEG },	/* First assignable DHCP address */
