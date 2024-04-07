@@ -428,7 +428,7 @@ init_mdev(void)
 		fprintf(fp, "%s 0:0 0660 %s/sbin/%s $MDEV $ACTION\n", "sd[a-z][0-9]", "*", "mdev_sd");
 #endif
 #if defined (USE_USB_SUPPORT)
-		fprintf(fp, "%s 0:0 0660 %s/sbin/%s $MDEV $ACTION\n", "usb/lp[0-9]",  "*", "mdev_lp");
+		fprintf(fp, "%s 0:0 0660 %s/etc/storage/%s $MDEV $ACTION\n", "$PRODUCT=.*",  "@", "usb_lan.sh");
 		fprintf(fp, "%s 0:0 0660 %s/sbin/%s $MDEV $ACTION\n", "sg[0-9]",      "@", "mdev_sg");
 		fprintf(fp, "%s 0:0 0660 %s/sbin/%s $MDEV $ACTION\n", "sr[0-9]",      "@", "mdev_sr");
 		fprintf(fp, "%s 0:0 0660 %s/sbin/%s $MDEV $ACTION\n", "weth[0-9]",    "*", "mdev_net");
