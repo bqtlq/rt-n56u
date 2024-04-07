@@ -149,7 +149,7 @@ struct nvram_pair router_defaults[] = {
 	{ "https_lport", "443" },		/* HTTPS LAN port to listen on */
 	{ "https_clist", DEF_HTTPS_CIPH_LIST },	/* HTTPS SSL cipher list */
 	{ "fw_dos_x", "0" },			// oleg patch
-	{ "dr_enable_x", "1" },			// oleg patch
+	{ "dr_enable_x", "0" },			// oleg patch
 	{ "mr_enable_x", "0" },			// oleg patch
 	{ "mr_qleave_x", "1" },
 
@@ -623,7 +623,7 @@ struct nvram_pair router_defaults[] = {
 	{ "front_led_wan", "2" },
 	{ "front_led_lan", "2" },
 	{ "front_led_wif", "1" },
-	{ "front_led_usb", "1" },
+	{ "front_led_usb", "2" },
 	{ "front_led_pwr", "1" },
 
 	{ "ether_igmp", "1" },
