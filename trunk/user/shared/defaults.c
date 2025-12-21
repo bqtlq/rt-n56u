@@ -56,6 +56,11 @@ struct nvram_pair router_defaults[] = {
 	{ "lan_dns_x", "static" },			/* LAN DNS [static|dhcp] */
 	{ "lan_dns1", "202.97.224.68" },			/* LAN DNS1 */
 	{ "lan_dns2", "223.5.5.5" },			/* LAN DNS2 */
+    // ========== 新增：DHCP服务专用DNS参数（核心修复） ==========
+    { "dhcpd_dns1", "202.97.224.68" },	/* DHCP服务下发的首选DNS */
+    { "dhcpd_dns2", "223.5.5.5" },		/* DHCP服务下发的备用DNS */
+    { "dhcpd_dnsenable", "1" },		/* 开启DHCP DNS下发功能 */
+    // ==========================================================
 	{ "lan_domain", "lan" },		/* LAN domain name */
 	{ "lan_stp", "1" },			/* LAN spanning tree protocol */
 
@@ -73,7 +78,7 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_netmask1", "255.255.255.0" },	/* 第二个IP子网掩码 */
 	{ "wan_gateway1", "10.21.82.1" },	/* 第二个IP网关 */
 	// ====================================================
-	{ "wan_dnsenable_x", "1" },
+	{ "wan_dnsenable_x", "0" },
 	{ "wan_dns1_x", "202.97.224.68" },
 	{ "wan_dns2_x", "223.5.5.5" },
 	{ "wan_dns3_x", "" },
