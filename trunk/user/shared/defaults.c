@@ -53,7 +53,7 @@ struct nvram_pair router_defaults[] = {
 	{ "lan_ipaddr", DEF_LAN_ADDR },		/* LAN IP address */
 	{ "lan_netmask", DEF_LAN_MASK },	/* LAN netmask */
 	{ "lan_gateway", DEF_LAN_ADDR },	/* LAN gateway */
-	{ "lan_dns_x", "1" },			/* LAN DNS [static|dhcp] */
+	{ "lan_dns_x", "static" },			/* LAN DNS [static|dhcp] */
 	{ "lan_dns1", "202.97.224.68" },			/* LAN DNS1 */
 	{ "lan_dns2", "223.5.5.5" },			/* LAN DNS2 */
 	{ "lan_domain", "lan" },		/* LAN domain name */
