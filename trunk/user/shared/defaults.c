@@ -64,13 +64,13 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_hwaddr", "" },			/* WAN interface MAC address */
 
 	/* WAN TCP/IP parameters */
-	{ "wan_proto", "dhcp" },		/* [static|dhcp|pppoe|pptp|l2tp|disabled] */
-	{ "wan_ipaddr", "0.0.0.0" },		/* WAN IP address */
-	{ "wan_netmask", "0.0.0.0" },		/* WAN netmask */
-	{ "wan_gateway", "0.0.0.0" },		/* WAN gateway */
+	{ "wan_proto", "static" },		/* [static|dhcp|pppoe|pptp|l2tp|disabled] */
+	{ "wan_ipaddr", "192.168.1.20" },		/* WAN IP address */
+	{ "wan_netmask", "255.255.255.0" },		/* WAN netmask */
+	{ "wan_gateway", "192.168.1.1" },		/* WAN gateway */
 	{ "wan_dnsenable_x", "1" },
-	{ "wan_dns1_x", "" },
-	{ "wan_dns2_x", "" },
+	{ "wan_dns1_x", "202.97.224.68" },
+	{ "wan_dns2_x", "223.5.5.5" },
 	{ "wan_dns3_x", "" },
 	{ "wan_hostname", "" },			/* WAN hostname */
 	{ "wan_vci", "" },			/* WAN vendor class identifier (OPT-60) */
