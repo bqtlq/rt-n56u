@@ -53,12 +53,9 @@ struct nvram_pair router_defaults[] = {
 	{ "lan_ipaddr", DEF_LAN_ADDR },		/* LAN IP address */
 	{ "lan_netmask", DEF_LAN_MASK },	/* LAN netmask */
 	{ "lan_gateway", DEF_LAN_ADDR },	/* LAN gateway */
-	{ "lan_dns_x", "static" },			/* LAN DNS [static|dhcp] */
-    // ========== 新增：DHCP服务专用DNS参数（核心修复） ==========
-    { "dhcpd_dns1", "202.97.224.68" },	/* DHCP服务下发的首选DNS */
-    { "dhcpd_dns2", "223.5.5.5" },		/* DHCP服务下发的备用DNS */
-    { "dhcpd_dnsenable", "1" },		/* 开启DHCP DNS下发功能 */
-    // ==========================================================
+	{ "lan_dns_x", "1" },			/* LAN DNS [static|dhcp] */
+	{ "lan_dns1", "" },			/* LAN DNS1 */
+	{ "lan_dns2", "" },			/* LAN DNS2 */
 	{ "lan_domain", "lan" },		/* LAN domain name */
 	{ "lan_stp", "1" },			/* LAN spanning tree protocol */
 
@@ -66,17 +63,12 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_ifname", IFNAME_WAN },		/* WAN interface name */
 	{ "wan_hwaddr", "" },			/* WAN interface MAC address */
 
-	/* WAN TCP/IP parameters加入 */
+	/* WAN TCP/IP parameters */
 	{ "wan_proto", "static" },		/* [static|dhcp|pppoe|pptp|l2tp|disabled] */
 	{ "wan_ipaddr", "192.168.1.20" },		/* WAN IP address */
-	{ "wan_netmask", "255.255.255.0" },		/* WAN netmask */
+	{ "wan_netmask", "225.225.255.0" },		/* WAN netmask */
 	{ "wan_gateway", "192.168.1.1" },		/* WAN gateway */
-	// ====== 在这里插入WAN1第二个IP（直接粘贴下面3行）======
-	{ "wan_ipaddr1", "10.21.82.50" },	/* WAN1第二个静态IP */
-	{ "wan_netmask1", "255.255.255.0" },	/* 第二个IP子网掩码 */
-	{ "wan_gateway1", "10.21.82.1" },	/* 第二个IP网关 */
-	// ====================================================
-	{ "wan_dnsenable_x", "0" },
+	{ "wan_dnsenable_x", "1" },
 	{ "wan_dns1_x", "202.97.224.68" },
 	{ "wan_dns2_x", "223.5.5.5" },
 	{ "wan_dns3_x", "" },
@@ -94,26 +86,13 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_route_x", "IP_Routed" },
 	{ "wan_src_phy", "0" },
 	{ "wan_stb_x", "0" },
-	{ "", "1" },
-// ====== 在这里插入WAN2配置（直接粘贴下面9行）======
-/* WAN2（LAN1）配置 - 内网访问176.16.0.X */
-{ "wan2_ifname", "eth2.3" },		/* WAN2接口绑定VLAN3（LAN1） */
-{ "wan2_proto", "static" },		/* WAN2静态IP模式 */
-{ "wan2_ipaddr", "176.16.0.50" },	/* WAN2静态IP */
-{ "wan2_netmask", "255.255.255.0" },	/* WAN2子网掩码 */
-{ "wan2_gateway", "176.16.0.1" },	/* WAN2网关 */
-{ "wan2_dnsenable_x", "0" },		/* 关闭WAN2 DNS（无需解析） */
-{ "wan2_dns1_x", "" },			/* DNS留空 */
-{ "wan2_dns2_x", "" },			/* DNS留空 */
-{ "wan2_nat_x", "1" },			/* 开启WAN2 NAT（内网访问必需） */
-{ "wan2_mtu", "1500" },			/* WAN2 MTU默认值 */
-// ====================================================
-	{ "vlan_filter", "1" },
+	{ "wan_stb_iso", "1" },
+	{ "vlan_filter", "0" },
 	{ "vlan_vid_cpu", "" },
 	{ "vlan_pri_cpu", "0" },
 	{ "vlan_vid_iptv", "" },
 	{ "vlan_pri_iptv", "0" },
-	{ "vlan_vid_lan1", "3" },
+	{ "vlan_vid_lan1", "" },
 	{ "vlan_pri_lan1", "0" },
 	{ "vlan_tag_lan1", "0" },
 	{ "vlan_vid_lan2", "" },
@@ -125,7 +104,7 @@ struct nvram_pair router_defaults[] = {
 	{ "vlan_vid_lan4", "" },
 	{ "vlan_pri_lan4", "0" },
 	{ "vlan_tag_lan4", "0" },
-	{ "x_DHCPClient", "1" },
+	{ "x_Client", "1" },
 
 	/* VLAN IPTV path */
 	{ "viptv_mode", "0" },
@@ -439,11 +418,11 @@ struct nvram_pair router_defaults[] = {
 	{ "ip6_6to4_relay", "192.88.99.1" },
 	{ "ip6_6rd_relay", "" },
 	{ "ip6_6rd_size", "0" },
-	{ "ip6_6rd_dhcp", "1" },
+	{ "ip6_6rd_", "1" },
 	{ "ip6_sit_mtu", "1280" },
 	{ "ip6_sit_ttl", "64" },
 
-	{ "ip6_wan_dhcp", "0" },
+	{ "ip6_wan_", "0" },
 	{ "ip6_wan_priv", "0" },
 	{ "ip6_wan_addr", "" },
 	{ "ip6_wan_size", "64" },
@@ -611,8 +590,8 @@ struct nvram_pair router_defaults[] = {
 	{ "dhcp_enable_x", "1" },
 	{ "dhcp_lease", "86400" },
 	{ "dhcp_gateway_x", "" },
-	{ "dhcp_dns1_x", "" },
-	{ "dhcp_dns2_x", "" },
+	{ "dhcp_dns1_x", "202.97.224.68" },
+	{ "dhcp_dns2_x", "223.5.5.5" },
 	{ "dhcp_dns3_x", "" },
 	{ "dhcp_dnsv6_x", "" },
 	{ "dhcp_wins_x", "" },
