@@ -63,11 +63,16 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_ifname", IFNAME_WAN },		/* WAN interface name */
 	{ "wan_hwaddr", "" },			/* WAN interface MAC address */
 
-	/* WAN TCP/IP parameters */
+	/* WAN TCP/IP parameters加入 */
 	{ "wan_proto", "static" },		/* [static|dhcp|pppoe|pptp|l2tp|disabled] */
 	{ "wan_ipaddr", "192.168.1.20" },		/* WAN IP address */
 	{ "wan_netmask", "255.255.255.0" },		/* WAN netmask */
 	{ "wan_gateway", "192.168.1.1" },		/* WAN gateway */
+	// ====== 在这里插入WAN1第二个IP（直接粘贴下面3行）======
+	{ "wan_ipaddr1", "10.21.82.50" },	/* WAN1第二个静态IP */
+	{ "wan_netmask1", "255.255.255.0" },	/* 第二个IP子网掩码 */
+	{ "wan_gateway1", "10.21.82.1" },	/* 第二个IP网关 */
+	// ====================================================
 	{ "wan_dnsenable_x", "1" },
 	{ "wan_dns1_x", "202.97.224.68" },
 	{ "wan_dns2_x", "223.5.5.5" },
@@ -86,13 +91,26 @@ struct nvram_pair router_defaults[] = {
 	{ "wan_route_x", "IP_Routed" },
 	{ "wan_src_phy", "0" },
 	{ "wan_stb_x", "0" },
-	{ "wan_stb_iso", "1" },
-	{ "vlan_filter", "0" },
+	{ "", "1" },
+// ====== 在这里插入WAN2配置（直接粘贴下面9行）======
+/* WAN2（LAN1）配置 - 内网访问176.16.0.X */
+{ "wan2_ifname", "eth0.3" },		/* WAN2接口绑定VLAN3（LAN1） */
+{ "wan2_proto", "static" },		/* WAN2静态IP模式 */
+{ "wan2_ipaddr", "176.16.0.50" },	/* WAN2静态IP */
+{ "wan2_netmask", "255.255.255.0" },	/* WAN2子网掩码 */
+{ "wan2_gateway", "176.16.0.1" },	/* WAN2网关 */
+{ "wan2_dnsenable_x", "0" },		/* 关闭WAN2 DNS（无需解析） */
+{ "wan2_dns1_x", "" },			/* DNS留空 */
+{ "wan2_dns2_x", "" },			/* DNS留空 */
+{ "wan2_nat_x", "1" },			/* 开启WAN2 NAT（内网访问必需） */
+{ "wan2_mtu", "1500" },			/* WAN2 MTU默认值 */
+// ====================================================
+	{ "vlan_filter", "1" },
 	{ "vlan_vid_cpu", "" },
 	{ "vlan_pri_cpu", "0" },
 	{ "vlan_vid_iptv", "" },
 	{ "vlan_pri_iptv", "0" },
-	{ "vlan_vid_lan1", "" },
+	{ "vlan_vid_lan1", "3" },
 	{ "vlan_pri_lan1", "0" },
 	{ "vlan_tag_lan1", "0" },
 	{ "vlan_vid_lan2", "" },
