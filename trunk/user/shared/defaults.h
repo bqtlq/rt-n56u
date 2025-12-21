@@ -30,10 +30,23 @@
 #define SYS_USER_NOBODY		"nobody"
 #define SYS_GROUP_NOGROUP	"nogroup"
 
-#define DEF_LAN_ADDR		"192.168.2.1"
-#define DEF_LAN_DHCP_BEG	"192.168.2.100"
-#define DEF_LAN_DHCP_END	"192.168.2.244"
+#define DEF_LAN_ADDR		"192.168.200.1"
+#define DEF_LAN_DHCP_BEG	"192.168.200.100"
+#define DEF_LAN_DHCP_END	"192.168.200.244"
 #define DEF_LAN_MASK		"255.255.255.0"
+
+// ========== 核心修改：DHCP给LAN设备分配的DNS（和WAN一致） ==========
+#define DEF_DHCP_DNS0		"202.97.224.68"   // DHCP下发的首选DNS
+#define DEF_DHCP_DNS1		"223.5.5.5"       // DHCP下发的备用DNS
+// ================================================================
+
+// ========== WAN口静态IP+DNS配置（保留） ==========
+#define DEF_WAN_STATIC_ADDR	"192.168.1.20"    // WAN静态IP
+#define DEF_WAN_STATIC_MASK	"255.255.255.0"   // WAN子网掩码
+#define DEF_WAN_STATIC_GW	"192.168.1.1"     // WAN网关
+#define DEF_WAN_DNS0		"202.97.224.68"   // WAN自身的首选DNS
+#define DEF_WAN_DNS1		"223.5.5.5"       // WAN自身的备用DNS
+// =================================================
 
 #define DEF_WLAN_2G_CC		"CN"
 #define DEF_WLAN_5G_CC		"US"
