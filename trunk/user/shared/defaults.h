@@ -35,19 +35,6 @@
 #define DEF_LAN_DHCP_END	"192.168.200.244"
 #define DEF_LAN_MASK		"255.255.255.0"
 
-// ========== 核心修改：DHCP给LAN设备分配的DNS（和WAN一致） ==========
-#define DEF_DHCP_DNS0		"202.97.224.68"   // DHCP下发的首选DNS
-#define DEF_DHCP_DNS1		"223.5.5.5"       // DHCP下发的备用DNS
-// ================================================================
-
-// ========== WAN口静态IP+DNS配置（保留） ==========
-#define DEF_WAN_STATIC_ADDR	"192.168.1.20"    // WAN静态IP
-#define DEF_WAN_STATIC_MASK	"255.255.255.0"   // WAN子网掩码
-#define DEF_WAN_STATIC_GW	"192.168.1.1"     // WAN网关
-#define DEF_WAN_DNS0		"202.97.224.68"   // WAN自身的首选DNS
-#define DEF_WAN_DNS1		"223.5.5.5"       // WAN自身的备用DNS
-// =================================================
-
 #define DEF_WLAN_2G_CC		"CN"
 #define DEF_WLAN_5G_CC		"US"
 #define DEF_WLAN_2G_SSID	BOARD_PID "_%s"
@@ -57,7 +44,7 @@
 #define DEF_WLAN_2G_PSK		"1234567890"
 #define DEF_WLAN_5G_PSK		"1234567890"
 
-#define DEF_ROOT_PASSWORD	"password"
+#define DEF_ROOT_PASSWORD	"admin"
 #define DEF_SMB_WORKGROUP	"WORKGROUP"
 #define DEF_TIMEZONE		"CST-8"
 #define DEF_NTP_SERVER0		"ntp1.aliyun.com"
