@@ -1,4 +1,4 @@
-/* OYE-001 */
+/* YZ-100A */
 
 #define BOARD_PID		"YZ-100A"
 #define BOARD_NAME		"YZ-100A"
