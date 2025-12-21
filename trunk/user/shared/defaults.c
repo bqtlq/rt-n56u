@@ -94,7 +94,7 @@ struct nvram_pair router_defaults[] = {
 	{ "", "1" },
 // ====== 在这里插入WAN2配置（直接粘贴下面9行）======
 /* WAN2（LAN1）配置 - 内网访问176.16.0.X */
-{ "wan2_ifname", "eth0.3" },		/* WAN2接口绑定VLAN3（LAN1） */
+{ "wan2_ifname", "eth2.3" },		/* WAN2接口绑定VLAN3（LAN1） */
 { "wan2_proto", "static" },		/* WAN2静态IP模式 */
 { "wan2_ipaddr", "176.16.0.50" },	/* WAN2静态IP */
 { "wan2_netmask", "255.255.255.0" },	/* WAN2子网掩码 */
