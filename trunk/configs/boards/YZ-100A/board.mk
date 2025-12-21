@@ -4,5 +4,5 @@
 # YZ-100A    # YZ-100A          # MT7620  #
 ##################################################################
 
-CFLAGS += -DBOARD_YZ_100A
+CFLAGS += -DBOARD_PSG1218
 BOARD_NUM_USB_PORTS=0
