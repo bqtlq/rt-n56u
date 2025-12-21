@@ -5,4 +5,4 @@
 ##################################################################
 
 CFLAGS += -DBOARD_YZ_100A
-BOARD_NUM_USB_PORTS=1
+BOARD_NUM_USB_PORTS=0
