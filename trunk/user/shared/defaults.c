@@ -54,8 +54,6 @@ struct nvram_pair router_defaults[] = {
 	{ "lan_netmask", DEF_LAN_MASK },	/* LAN netmask */
 	{ "lan_gateway", DEF_LAN_ADDR },	/* LAN gateway */
 	{ "lan_dns_x", "static" },			/* LAN DNS [static|dhcp] */
-	{ "lan_dns1", "202.97.224.68" },			/* LAN DNS1 */
-	{ "lan_dns2", "223.5.5.5" },			/* LAN DNS2 */
     // ========== 新增：DHCP服务专用DNS参数（核心修复） ==========
     { "dhcpd_dns1", "202.97.224.68" },	/* DHCP服务下发的首选DNS */
     { "dhcpd_dns2", "223.5.5.5" },		/* DHCP服务下发的备用DNS */
