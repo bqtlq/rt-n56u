@@ -1,17 +1,17 @@
 /* OYE-001 */
 
-#define BOARD_PID		"OYE-001"
-#define BOARD_NAME		"OYE-001"
-#define BOARD_DESC		"OYE-001 Wireless Router"
-#define BOARD_VENDOR_NAME	"OYE"
-#define BOARD_VENDOR_URL	"http://www.oyewifi.com"
-#define BOARD_MODEL_URL		"http://www.oyewifi.com"
+#define BOARD_PID		"YZ-100A"
+#define BOARD_NAME		"YZ-100A"
+#define BOARD_DESC		"YZ-100A"
+#define BOARD_VENDOR_NAME	"YZ-100A"
+#define BOARD_VENDOR_URL	"YZ-100A"
+#define BOARD_MODEL_URL		"YZ-100A"
 #define BOARD_BOOT_TIME		20
 #define BOARD_FLASH_TIME	120
 #undef BOARD_GPIO_BTN_RESET
 #define BOARD_GPIO_BTN_WPS	1
 #undef  BOARD_GPIO_LED_ALL
-#define BOARD_GPIO_LED_WIFI	72
+#define BOARD_GPIO_LED_WIFI	11
 #define BOARD_GPIO_LED_POWER	9
 #undef BOARD_GPIO_LED_LAN
 #undef BOARD_GPIO_LED_WAN
